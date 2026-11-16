@@ -1,0 +1,16 @@
+{
+  "name": "gaceta-medica-boliviana-editorial",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Plataforma editorial complementaria de la Gaceta Médica Boliviana (UMSS)",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:borradores": "node build.mjs --drafts"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "marked": "^15.0.12"
+  },
+  "engines": { "node": ">=20" }
+}
