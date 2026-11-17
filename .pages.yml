@@ -1,0 +1,168 @@
+# Configuración del panel de administración (Pages CMS: https://app.pagescms.org)
+# Este archivo define los formularios que ven los auxiliares editoriales.
+# No requiere modificarse para el trabajo diario.
+
+media:
+  input: media
+  output: /media
+  extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: editoriales
+    label: Editoriales y opinión
+    type: collection
+    path: content/editoriales
+    filename: "{primary}.md"
+    view:
+      primary: titulo
+      fields: [estado, fecha, categoria, autor]
+      sort: [fecha, titulo]
+      default:
+        sort: fecha
+        order: desc
+    fields:
+      - name: titulo
+        label: Título
+        type: string
+        required: true
+      - name: subtitulo
+        label: Subtítulo (opcional)
+        type: string
+      - name: estado
+        label: Estado de la publicación
+        type: select
+        required: true
+        default: borrador
+        description: "Borrador: solo lo ve el equipo editorial. Publicada: se muestra en la página cuando llega su fecha."
+        options:
+          values:
+            - { value: borrador, label: Borrador (no se muestra al público) }
+            - { value: publicada, label: Publicada }
+      - name: fecha
+        label: Fecha de publicación
+        type: date
+        required: true
+        description: "Si elige una fecha futura, la editorial aparecerá sola ese día (la página se actualiza cada madrugada)."
+      - name: categoria
+        label: Categoría
+        type: reference
+        required: true
+        options:
+          collection: categorias
+          search: [titulo]
+      - name: autor
+        label: Autor
+        type: reference
+        required: true
+        options:
+          collection: autores
+          search: [nombre]
+      - name: destacada
+        label: Mostrar como editorial destacada en el inicio
+        type: boolean
+        default: false
+      - name: imagen
+        label: Imagen principal
+        type: image
+      - name: imagenAlt
+        label: Descripción de la imagen (para personas con discapacidad visual)
+        type: string
+      - name: imagenCredito
+        label: Crédito de la imagen (opcional)
+        type: string
+      - name: resumen
+        label: Introducción breve (2 o 3 líneas)
+        type: text
+        description: "Se muestra en la portada y en las tarjetas. Si se deja vacío, se toma el comienzo del texto."
+      - name: body
+        label: Texto de la editorial
+        type: rich-text
+      - name: referencias
+        label: Referencias bibliográficas (opcional)
+        type: rich-text
+      - name: enlaceOjs
+        label: Enlace a un artículo relacionado en el OJS (opcional)
+        type: string
+        description: "Pegue la dirección completa (https://...) del artículo en la revista oficial."
+      - name: etiquetas
+        label: Etiquetas
+        type: string
+        list: true
+
+  - name: autores
+    label: Autores
+    type: collection
+    path: content/autores
+    filename: "{primary}.md"
+    view:
+      primary: nombre
+      fields: [grado, afiliacion]
+    fields:
+      - { name: nombre, label: Nombre completo, type: string, required: true }
+      - { name: grado, label: Grado académico (ej. Dr., MSc.), type: string }
+      - { name: afiliacion, label: Afiliación institucional, type: string }
+      - { name: foto, label: Fotografía del autor, type: image }
+      - { name: biografia, label: Biografía breve, type: text }
+      - { name: orcid, label: ORCID (opcional), type: string }
+      - { name: email, label: Correo de contacto (opcional, será público), type: string }
+
+  - name: categorias
+    label: Categorías
+    type: collection
+    path: content/categorias
+    filename: "{primary}.md"
+    view:
+      primary: titulo
+      fields: [orden]
+    fields:
+      - { name: titulo, label: Nombre de la categoría, type: string, required: true }
+      - { name: descripcion, label: Descripción breve, type: text }
+      - { name: orden, label: Posición en la lista (1 aparece primero), type: number }
+
+  - name: configuracion
+    label: Configuración del sitio
+    type: file
+    path: site.json
+    format: json
+    fields:
+      - { name: nombre, label: Nombre de la plataforma, type: string }
+      - { name: plataforma, label: Subtítulo de la cabecera, type: string }
+      - { name: descripcion, label: Descripción para buscadores, type: text }
+      - { name: facultad, label: Nombre de la Facultad, type: string }
+      - { name: universidad, label: Nombre de la Universidad, type: string }
+      - name: logos
+        label: Logotipos
+        type: object
+        fields:
+          - { name: gaceta, label: Logotipo de la Gaceta Médica Boliviana, type: image }
+          - { name: facultad, label: Logotipo de la Facultad de Medicina, type: image }
+          - { name: umss, label: Logotipo de la UMSS, type: image }
+      - name: ojs
+        label: Revista oficial (OJS)
+        type: object
+        fields:
+          - { name: url, label: Dirección principal del OJS, type: string }
+          - { name: archivo, label: Dirección del archivo de números, type: string }
+          - { name: instrucciones, label: Dirección de las instrucciones para autores, type: string }
+      - name: enlaces
+        label: Otros enlaces institucionales
+        type: object
+        fields:
+          - { name: facultad, label: Sitio de la Facultad de Medicina, type: string }
+          - { name: umss, label: Sitio de la UMSS, type: string }
+      - name: contacto
+        label: Contacto editorial
+        type: object
+        fields:
+          - { name: email, label: Correo electrónico, type: string }
+          - { name: direccion, label: Dirección o teléfono, type: string }
+      - name: redes
+        label: Redes sociales oficiales
+        type: object
+        list: true
+        fields:
+          - { name: nombre, label: Nombre de la red (ej. Facebook), type: string }
+          - { name: url, label: Dirección del perfil, type: string }
+      - { name: imagenCompartir, label: Imagen por defecto al compartir en redes, type: image }
+      - { name: derechos, label: Texto de derechos de autor, type: text }
+      - { name: privacidad, label: Texto del aviso de privacidad, type: text }
