@@ -4,16 +4,15 @@
   "descripcion": "Editoriales, opinión científica y divulgación de la Gaceta Médica Boliviana, publicación de la Facultad de Medicina de la Universidad Mayor de San Simón.",
   "facultad": "Facultad de Medicina Dr. Aurelio Meleán",
   "universidad": "Universidad Mayor de San Simón",
-  "logos": { "gaceta": "", "facultad": "", "umss": "" },
-  "ojs": {
-    "url": "https://gacetamedicaboliviana.com",
-    "archivo": "",
-    "instrucciones": ""
+  "logos": {
+    "gaceta": "/media/gmb-logo.png"
   },
-  "enlaces": { "facultad": "", "umss": "https://www.umss.edu.bo" },
-  "contacto": { "email": "", "direccion": "" },
-  "redes": [],
-  "imagenCompartir": "",
+  "ojs": {
+    "url": "https://gacetamedicaboliviana.com"
+  },
+  "enlaces": {
+    "umss": "https://www.umss.edu.bo"
+  },
   "derechos": "Los textos de esta plataforma pertenecen a sus autores y a la Gaceta Médica Boliviana. Se permite su cita indicando autor y fuente.",
   "privacidad": "Esta plataforma no usa cookies de seguimiento, no pide registro a los lectores y no recopila datos personales. El buscador funciona dentro de su navegador. Las tipografías se cargan desde Google Fonts, que puede registrar la dirección IP de la visita. Al abrir enlaces hacia el OJS, redes sociales u otros sitios, rigen las políticas de privacidad de esos sitios."
 }
