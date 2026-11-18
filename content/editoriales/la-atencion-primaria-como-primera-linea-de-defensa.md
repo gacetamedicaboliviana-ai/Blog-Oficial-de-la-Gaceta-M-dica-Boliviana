@@ -1,7 +1,7 @@
 ---
 titulo: La atención primaria como primera línea de defensa
 subtitulo: Por qué fortalecerla es más urgente que ampliar hospitales
-estado: borrador
+estado: publicada
 fecha: 2026-11-18
 categoria: content/categorias/salud-publica.md
 autor: content/autores/dra-ana-rojas-mamani.md
