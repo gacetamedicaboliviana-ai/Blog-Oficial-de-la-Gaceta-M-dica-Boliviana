@@ -5,7 +5,8 @@
   "facultad": "Facultad de Medicina Dr. Aurelio Meleán",
   "universidad": "Universidad Mayor de San Simón",
   "logos": {
-    "gaceta": "/media/gmb-logo.png"
+    "gaceta": "/media/gmb-logo.png",
+    "umss": "/media/logo umss-1.png"
   },
   "ojs": {
     "url": "https://gacetamedicaboliviana.com"
